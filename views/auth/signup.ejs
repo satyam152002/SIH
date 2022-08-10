@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp Signup</title>
+    <link rel="stylesheet" href="./css/register.css">
+    <script defer src="./js/register.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Signup</h1>
+    <div class="container">
+        <form id="signup-form"  action="/auth/signup" method="post" >
+            <div style="color:red;font-size: larger; ">
+                <% if(locals.error){ %>
+                    <div><%= locals.error %></div>
+                <% } %>
+            </div>
+            <input type="text" name="username" placeholder="Enter Username" value="<%= locals.camp?.username %>" >
+            <input type="text" required name="name" placeholder="Enter Camp Name" id="name" value="<%= locals.camp?.name %>" >
+            <input type="text" required name="state" placeholder="Enter State" id="state" value="<%= locals.camp?.state %>">
+            <input type="text" required name="campID" placeholder="Enter Camp ID" id="campID" value="<%= locals.camp?.campID %>">
+            <select name="campType" required >
+                <option value="Militrary Resource Camp">Militrary Resource Camp</option>
+                <option value="Militrary Camp">Militrary Camp</option>
+            </select>
+            <input type="password"  required name="password" placeholder="Enter password" autocomplete="off" >
+            <input type="button"  value="click to give locaton" id="loc" >
+            <input type="text" name="location" id="location" required readonly value="<%= JSON.stringify(locals.camp?.location) %>">
+            <input type="submit" value="Signup">
+            <hr>
+            <p style="color:white;text-align:center;background-color: black;padding: .2rem;">
+                Already Have An Account?
+                <a href="/auth/signin" style="text-decoration:none;font-size: 1.3rem;" > SignIn</a>
+            </p>
+        </form>
+        <a href="/auth/users">Get All User</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+*,*::before,*::after
+{
+    margin: 0;
+    box-sizing: border-box;
+}
+body
+{
+    margin-top: 5rem;
+}
+form
+{
+    text-align: center;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 700px;
+    padding: 10px;
+    background-color: rgb(0, 74, 87);
+    border-radius: 10px;
+}
+form input
+{
+    outline: none;
+    border: none;
+    border-radius: .2rem;
+}
+form>*
+{
+    margin: 0.5rem 0rem;
+    padding: 0.5rem 0.5rem;
+}
